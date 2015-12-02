@@ -10,11 +10,10 @@ var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'assets', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', require('./routes/shopping'));
@@ -22,7 +21,7 @@ app.use('/', require('./routes/shopping'));
 Mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shoppingSite');
 
 app.get('/', function(req, res) {
-  var index = path.join(__dirname, 'public', 'index.html');
+  var index = path.join(__dirname, 'public');
   var html = fs.readFileSync(index, 'utf8');
   console.log(html);
   fs.readFile(index, 'utf8', function(err, data) {
