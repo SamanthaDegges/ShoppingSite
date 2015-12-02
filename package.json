@@ -1,0 +1,26 @@
+{
+  "name": "shopping-site-for-entrepreneurs",
+  "version": "1.0.0",
+  "description": "A simple full-stack site to manage inventory, listings, sales and email communication.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamanthaDegges/ShoppingSite.git"
+  },
+  "author": "Samantha Degges",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamanthaDegges/ShoppingSite/issues"
+  },
+  "homepage": "https://github.com/SamanthaDegges/ShoppingSite#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.2.8",
+    "morgan": "^1.6.1",
+    "serve-favicon": "^2.3.0"
+  }
+}
