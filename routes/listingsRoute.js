@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var listing = require('../models/listing');
 var transaction = require('../models/transaction');
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   listing.find({}, function(err, found) {
     res.send(err || found);
   });
