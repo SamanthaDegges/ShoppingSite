@@ -21,17 +21,15 @@ router.post('/', function(req, res, next) {
 });
 
 router.put('/:listingId', function(req, res, next) {
-  // res.send('put works.');
-  listing.findByIdandUpdate(req.params.listingId, function(err, updated) {
-    console.log(err);
+  listing.findByIdAndUpdate(req.params.listingId, req.body, function(err, updated) {
     if (err || !updated) {
-      res.status(404).send(err || "Update unsuccessful: listing not found.");
-    } else {
-      updated.save(function(err, saved) {
-        res.send(err || saved);
-      })
+      return res.status(404).send(err || "Update unsuccessful: listing not found.");
     }
-  })
+
+    updated.save(function(err, saved) {
+      res.send(err || saved);
+    });
+  });
 });
 
 router.delete('/:listingId', function(req, res, next) {
