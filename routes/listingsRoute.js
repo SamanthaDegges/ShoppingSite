@@ -5,6 +5,7 @@ var Schema = Mongoose.Schema;
 var router = require('express').Router();
 var bodyParser = require('body-parser');
 var listing = require('../models/listing');
+var transaction = require('../models/transaction');
 
 router.get('/', function(req, res, next) {
   listing.find({}, function(err, found) {
@@ -19,27 +20,30 @@ router.post('/', function(req, res, next) {
   });
 });
 
-router.put('/', function(req, res, next) {
-  res.send('put works.');
+router.put('/:listingId', function(req, res, next) {
+  // res.send('put works.');
+  listing.findByIdandUpdate(req.params.listingId, function(err, updated) {
+    console.log(err);
+    if (err || !updated) {
+      res.status(404).send(err || "Update unsuccessful: listing not found.");
+    } else {
+      updated.save(function(err, saved) {
+        res.send(err || saved);
+      })
+    }
+  })
 });
 
-router.delete('/', function(req, res, next) {
-  res.send('delete works.');
+router.delete('/:listingId', function(req, res, next) {
+  // res.send('delete works.', req.params.listingId);
+  listing.findByIdAndRemove(req.params.listingId, function(err, deleted) {
+    console.log(err);
+    if (err || !deleted) {
+      res.status(404).send(err || "Delete unsuccessful: Item not found.")
+    } else {
+      res.send('completed deletion of: ', deleted);
+    }
+  })
 });
 
 module.exports = router;
-
-
-//
-// activeDate: {type: Date, required: true},
-// endDate: {type: Date, required: false},
-// options: {type: Boolean, default: false, required: true},
-// title: {type: String, required: true},
-// description: {type: String, required: true},
-// price: {type: Number, required: true},
-// images: [type: String],
-// quantity: Number,
-// status: {type: String, default: 'archived', enum: ['archived', 'current', 'scheduled'], required: true},
-// created: {type: Date, default: Date.now},
-// category: [type: String],
-// occasion: [type: String]
