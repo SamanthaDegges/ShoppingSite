@@ -16,9 +16,12 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', require('./routes/shopping'));
+app.use('/', require('./routes/listingsRoute'));
+app.use('/transactions', require('./routes/transactionsRoute'));
 
-Mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shoppingSite');
+//Mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shoppingSite');
+
+Mongoose.connect('mongodb://localhost/shoppingSite');
 
 app.get('/', function(req, res) {
   var index = path.join(__dirname, 'public');
@@ -42,8 +45,7 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500);
-    res.send('error', {
+    res.status(err.status || 500).send('error', {
       message: err.message,
       error: err
     });
