@@ -2,8 +2,7 @@ var Mongoose = require('mongoose');
 var Schema = Mongoose.Schema;
 
 var listingSchema =  Schema({
-  // activeDate: {type: Date, required: true},
-  // endDate: {type: Date, required: false},
+  duration: {startDate: Date, endDate: Date},
   options: {type: Boolean, default: false, required: true},
   title: {type: String, required: true},
   description: {type: String, required: true},
