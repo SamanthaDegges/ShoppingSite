@@ -1,25 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="no-js" lang="en">
 <head>
-  <link rel="stylesheet" href="stylesheets/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="stylesheets/custom.css">
   <link rel="stylesheet" href="vendor/custom-f6/css/foundation.css">
+  <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
   <script src="https://code.angularjs.org/1.2.13/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
   <script src="app.js"></script>
   <script src="js/controllers/listingsCtrl.js"></script>
   <script src="js/controllers/homeCtrl.js"></script>
-  <meta charset="UTF-8">
-  <title>Shop Site</title>
+  <title>Boutique | Petite</title>
 </head>
 
 <body ng-app= "app">
-  <h4>Shop Site</h4>
+  <!-- HEADER -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li class="menu-text">Le Petite Botique</li>
+        <li><a href="#">One</a></li>
+        <li><a href="#">Two</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">
+      <ul class="menu">
+        <li><a href="#">Three</a></li>
+        <li><a href="#">Four</a></li>
+        <li><a href="#">Five</a></li>
+        <li><a href="#">Six</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- END HEADER -->
 
   <div ui-view></div>
 
+  <!-- FOOTER -->
+  <div class="callout large secondary">
+    <div class="row">
+      <div class="large-4 columns">
+        <h5>Le Botique Petite</h5>
+        <p>We are not a 501(c) non profit. We like profits.</p
+      </div>
+      <div class="large-3 large-offset-2 columns">
+        <ul class="menu vertical">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Clearance</a></li>
+        </ul>
+      </div>
+      <div class="large-3 columns">
+        <ul class="menu vertical">
+          <li><a href="#">Secure Payments</a></li>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Returns</a></li>
+        </ul>
+      </div>
+  </div>
+</div>
 
-
-  <script src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src= "vendor/custom-f6/js/foundation.js"></script>
+<script src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<!-- <script>
+<script src= "vendor/custom-f6/js/foundation.js"></script> -->
+<script>$(document).foundation();</script>
 </body>
 </html>

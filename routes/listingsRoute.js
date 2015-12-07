@@ -33,7 +33,6 @@ router.put('/:listingId', function(req, res, next) {
 });
 
 router.delete('/:listingId', function(req, res, next) {
-  // res.send('delete works.', req.params.listingId);
   listing.findByIdAndRemove(req.params.listingId, function(err, deleted) {
     console.log(err);
     if (err || !deleted) {

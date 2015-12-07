@@ -10,10 +10,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
     controller: 'homeCtrl'
   })
 
-  .state('listings', {
-    url: '/listings',
-    templateUrl: 'partials/listings.html',
-    controller: 'listingsCtrl'
+  .state('home.listings', {
+    templateUrl: 'partials/home.listings.html'
+    // controller: 'listingsCtrl'
   })
 
 });
