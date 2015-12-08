@@ -4,16 +4,16 @@ app.service("listingService", function($http) {
 
   this.createListing = function(listing) {
     var newListing = {
-      duration.startDate: listing.startDate,
-      duration.endDate: listing.endDate,
+      // duration.startDate: listing.startDate,
+      // duration.endDate: listing.endDate,
       title: listing.title,
       description: listing.description,
-      price: listing.Number,
+      price: listing.priceNum,
       images: listing.images,
       status: listing.status,
       created: Date.now
     }
-    $http.post('/', newListing).
+    $http.post('/listings', newListing).
     then(function(res) {
       console.log('listing creation successful', res);
     }, function(err) {
@@ -22,7 +22,7 @@ app.service("listingService", function($http) {
   }
 
   this.removeListing = function(listingId) {
-    $http.delete('/:listingId', listingId).
+    $http.delete('listings/:listingId', listingId).
     then(function(res) {
       alert("The listing has been removed.")
     }, function(err) {
@@ -32,7 +32,7 @@ app.service("listingService", function($http) {
   }
 
   this.editListing = function(editData) {
-    $http.put('/', editData).
+    $http.put('/listings', editData).
     then(function(res) {
       alert('Your listing has been edited.')
     }, function(err) {
@@ -41,13 +41,7 @@ app.service("listingService", function($http) {
   }
 
   this.getListings = function() {
-    $http.get('/').
-    then(function(res) {
-      console.log(res);
-    }, function(err) {
-      alert("error getting listing. Error: "+ err.data);
-      console.log(err.data);
-    })
-  }
+    return $http.get('/listings');
+  };
 
 });
