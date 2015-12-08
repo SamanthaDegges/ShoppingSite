@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/transactions', require('./routes/transactionsRoute'));
-app.use('/', require('./routes/listingsRoute'));
+app.use('/listings', require('./routes/listingsRoute'));
 
 //Mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shoppingSite');
 
