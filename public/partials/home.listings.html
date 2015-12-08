@@ -1,6 +1,6 @@
 <!-- LISTINGS.HTML -->
 <!-- LISTINGS GRID -->
-<div ng-show="something">
+<div ng-if= "!check">
   <div class="row column text-center">
     <h2>Listings Partial</h2>
     <hr>
@@ -11,7 +11,7 @@
         <h5>{{listing.title}}</h5>
         <p class="text-right">${{listing.price}}</p>
         <div class="button-group expanded">
-          <a href ng-click="something = !something" class="button">View</a>
+          <a href ng-click="toggleShow()" class="button">View</a>
           <a href="#" class="button">Buy</a>
         </div>
       </div>
@@ -161,8 +161,7 @@
 
 <!-- LISTING PROFILE VIEW -->
 <br>
-<div ng-show="!something">
-  <!-- ng-hide="hideProfile" class="ng-hide" -->
+<div ng-if="check">
   <div class="row">
     <div class="medium-6 columns">
       <img class="thumbnail" ng-src="http://placehold.it/650x350">
@@ -202,7 +201,7 @@
       </div>
       <a href="#" class="button large expanded">Buy Now</a>
       <div class="small secondary expanded button-group">
-        <a href ng-click="something = !something" class="button">Back</a>
+        <a href ng-click= "toggleShow()" class="button">Back</a>
         <a class="button">Twitter</a>
         <a class="button">Yo</a>
       </div>

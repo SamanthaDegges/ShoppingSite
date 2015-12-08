@@ -3,18 +3,13 @@
 app.service("cartService", function($http) {
 
   this.purchase = function(purchaseData) {
-    var newPurchase = {
-      submitDate: Date.now,
-      item: cart.itemId,
-      images: item.images.featured,
-      customerName: cart.name
-    }
-      $http.post('/transactions', newPurchase).
-      then(function(res) {
-        console.log('purchase successful', res);
-      }, function(err) {
-        alert("Your transaction did not go through. Error "+ err.data);
-      })
+    // var newPurchase = {
+    //   submitDate: Date.now,
+    //   item: purchaseData.item,
+    //   images: item.images.featured,
+    //   customerName: purchaseData.customerName
+    // }
+      return $http.post('/transactions', purchaseData);
   }
 
   this.removeTransaction = function(purchaseId) {
