@@ -1,6 +1,6 @@
 'use strict'
 
-app.service("shoppingCart", function($http) {
+app.service("cartService", function($http) {
 
   this.purchase = function(purchaseData) {
     var newPurchase = {
