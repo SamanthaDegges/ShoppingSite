@@ -4,8 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Boutique | Petite</title>
-  <link rel="stylesheet" href="stylesheets/custom.css">
-  <link rel="stylesheet" href="vendor/custom-f6/css/foundation.css">
+  <link rel="stylesheet" href="bower_components/foundation-sites/dist/foundation.min.css">
   <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
   <script src="https://code.angularjs.org/1.2.13/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
@@ -34,8 +33,7 @@
       <ul class="menu">
         <li><a ui-sref="adminLogin" if-not-user>Admin Login</a></li>
         <li><a ui-sref="home" sp-logout if-user>Log Out</a></li>
-        <li><a href="#">Five</a></li>
-        <li><a href="#">Six</a></li>
+        <li><a ui-sref="adminDash" if-user>Dashboard</a></li>
       </ul>
     </div>
   </div>
@@ -69,6 +67,7 @@
 
 <script src = "https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script src="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+<script src="bower_components/foundation-sites/dist/foundation.min.js"></script>
 <!-- <script>
 <script src= "vendor/custom-f6/js/foundation.js"></script> -->
 <script>$(document).foundation();</script>
