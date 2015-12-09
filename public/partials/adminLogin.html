@@ -1,0 +1,12 @@
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+<div>
+  <div ng-if="login">
+    <h4 class="text-center">Login</h4>
+    <div sp-login-form></div>
+  </div>
+  <div ng-if="!login">
+    <h4 class="text-center">Registration:</h4>
+    <div sp-registration-form></div>
+  </div>
+  <h5 ng-hide = '!login'>Don't have an account? <a ng-click = "toggleLogin()">Register Here.</a></h5>
+</div>
