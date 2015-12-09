@@ -1,4 +1,4 @@
 node_modules
 .env
-public/vendor
 public/bower_components
+public/vendor
