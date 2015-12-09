@@ -4,7 +4,12 @@
   "description": "A simple full-stack site to manage inventory, listings, sales and email communication.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "postinstall": "bower install && grunt build"
+  },
+  "engines": {
+    "node": "4.1.1"
   },
   "repository": {
     "type": "git",
