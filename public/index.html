@@ -9,11 +9,15 @@
   <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
   <script src="https://code.angularjs.org/1.2.13/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
+  <script src="bower_components/stormpath-sdk-angularjs/dist/stormpath-sdk-angularjs.min.js"></script>
+  <script src="bower_components/stormpath-sdk-angularjs/dist/stormpath-sdk-angularjs.tpls.min.js"></script>
   <script src="app.js"></script>
   <script src="js/controllers/listingsCtrl.js"></script>
   <script src="js/controllers/homeCtrl.js"></script>
   <script src="js/services/listingService.js"></script>
   <script src="js/services/cartService.js"></script>
+  <script src="js/controllers/adminDashCtrl.js"></script>
+  <script src="js/controllers/adminLoginCtrl.js"></script>
 </head>
 
 <body ng-app= "app">
@@ -28,8 +32,8 @@
     </div>
     <div class="top-bar-right">
       <ul class="menu">
-        <li><a href="#">Three</a></li>
-        <li><a href="#">Four</a></li>
+        <li><a ui-sref="adminLogin" if-not-user>Admin Login</a></li>
+        <li><a ui-sref="home" sp-logout if-user>Log Out</a></li>
         <li><a href="#">Five</a></li>
         <li><a href="#">Six</a></li>
       </ul>
