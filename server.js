@@ -80,5 +80,5 @@ module.exports = app;
 
 // Once Stormpath has initialized itself, start your web server!
 app.on('stormpath.ready', function () {
-  app.listen(3000);
+  app.listen(process.env.PORT || 3000);
 });
