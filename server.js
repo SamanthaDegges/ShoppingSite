@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var fs = require('fs');
 var http = require('http');
 var app = express();
+var stormpath = require('express-stormpath');
 
 app.set('views', path.join(__dirname, 'views'));
 
@@ -15,6 +16,19 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(stormpath.init(app, {
+  // Optional configuration options.
+  website: true,
+  application: {href: "https://api.stormpath.com/v1/applications/2QtaNA39FqfqyNoMQGKM4S"},
+  spaRoot: path.join(__dirname, 'public', 'index.html') //,
+  // web: {
+  //   login: {
+  //     enabled: true,
+  //     nextUri: "/#/adminDash"
+  //   }
+  // }
+  })
+);
 
 app.use('/transactions', require('./routes/transactionsRoute'));
 app.use('/listings', require('./routes/listingsRoute'));
@@ -64,4 +78,7 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-app.listen(3000);
+// Once Stormpath has initialized itself, start your web server!
+app.on('stormpath.ready', function () {
+  app.listen(3000);
+});
