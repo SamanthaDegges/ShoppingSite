@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(stormpath.init(app, {
   // Optional configuration options.
   website: true,
-  application: {href: STORMPATH_URL},
+  application: {href: process.env.STORMPATH_URL},
   spaRoot: path.join(__dirname, 'public', 'index.html') //,
   // web: {
   //   login: {
