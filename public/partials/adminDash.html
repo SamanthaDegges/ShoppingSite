@@ -1,15 +1,65 @@
-  <h4>ADMIN DASH</h4>
-  <button><a ui-sref="home" sp-logout>Logout</a></button>
-  <li class="accordion-navigation">
-    <a href="#panel2a">Accordion 2</a>
-    <div id="panel2a" class="content">
-      Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<div class="row">
+    <h4>ADMIN DASH</h4>
+    <!-- LISTINGS ACCORDION -->
+    <div class ="accordionHolder large-12 columns">
+      <h4>Listings</h4>
+      <accordion close-others="false">
+        <accordion-group heading="For Sale" is-open="true">
+          A list of all items currently listed as active or for sale.
+          <!-- <button class="button small" ng-click="addItem()">Add Item</button> -->
+          <div ng-repeat="item in items">{{item}}</div>
+        </accordion-group>
+        <accordion-group heading="Scheduled">
+          <div ng-repeat="item in items">{{item}}</div>
+          <p>A list or table of items that are scheduled will appear here, dynamically.</p>
+        </accordion-group>
+        <accordion-group heading="Archived">
+          <div ng-repeat="item in items">{{item}}</div>
+          <p>Archived items listed here.</p>
+        </accordion-group>
+        <accordion-group is-open="isopen">
+          <accordion-heading>
+            I can have markup, too! <i class="right" ng-class="{'fa fa-chevron-down': isopen, 'fa fa-chevron-right': !isopen}"></i>
+          </accordion-heading>
+          This is just some content to illustrate fancy headings.
+        </accordion-group>
+      </accordion>
     </div>
-  </li>
-  <li class="accordion-navigation">
-    <a href="#panel3a">Accordion 3</a>
-    <div id="panel3a" class="content">
-      Panel 3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </div>
-  </li>
-</ul>
+</div>
+
+<div class="row">
+  <!--SALES ACCORDION -->
+  <div class ="accordionHolder large-6 medium-12 small-12 columns marginRight">
+    <h4>Sales</h4>
+    <accordion close-others="false">
+      <accordion-group heading="Recent" is-open="true">
+        A list of recent sales (from Stripe) and a checkbox to move them to archive.
+        This action exists so admin can manually 'review' automated orders.
+        <!-- <button class="button small" ng-click="addItem()">Add Item</button> -->
+        <div ng-repeat="item in items">{{item}}</div>
+      </accordion-group>
+      <accordion-group heading="Archived">
+        <div ng-repeat="item in items">{{item}}</div>
+        <p>Archived sales listed here.</p>
+      </accordion-group>
+    </accordion>
+  </div>
+
+  <div class ="accordionHolder large-6 medium-12 small-12 columns marginLeft">
+    <h4>Settings</h4>
+    <accordion close-others="true">
+      <!-- <accordion-group heading="Edit Theme">
+        <p>Customize colors here. Controller sets color to sass variables, etc.</p>
+      </accordion-group> -->
+      <accordion-group heading="Admin Management">
+        <p>A place for the creation of admin. THis enables auth registration. Only from here!</p>
+      </accordion-group>
+      <accordion-group heading="Customize Carousel">
+        <p>A place to upload images to banner and edit text that is animated in.</p>
+      </accordion-group>
+      <accordion-group heading="Email & Communications">
+        <p>Enable email settings or templates here.</p>
+      </accordion-group>
+    </accordion>
+  </div>
+</div>

@@ -5,7 +5,22 @@
     <h2>Listings Partial</h2>
     <hr>
   </div>
-  <div class="row small-up-2 large-up-4">
+  <!-- LISTINGS -->
+  <div class="row">
+    <div ng-repeat="listing in listings track by $index" class="large-4 columns">
+      <img src="http://placehold.it/400x300&text=[img]"/>
+      <h4>{{listing.title}}</h4>
+      <p class="text-right">${{listing.price}}</p>
+      <p>{{listing.description}}</p>
+      <div class="button-group expanded">
+        <a href ng-click="toggleShow()" class="button">View</a>
+        <a href="#" class="button">Buy</a>
+      </div>
+    </div>
+  </div>
+
+<!-- OLD F6 LISTINGS -->
+  <!-- <div class="row small-up-2 large-up-4">
       <div ng-repeat="listing in listings track by $index" class="column">
         <img class="thumbnail" ng-src="http://placehold.it/300x400">
         <h5>{{listing.title}}</h5>
@@ -15,148 +30,10 @@
           <a href="#" class="button">Buy</a>
         </div>
       </div>
-  </div>
+  </div> -->
 </div>
 
-  <hr>
-  <!-- <div class="row column text-center">
-    <h2>Some Other Products</h2>
-    <hr>
-  </div>
-
-  <div class="row small-up-2 medium-up-3 large-up-6">
-    <div class="column">
-      <img class="thumbnail" ng-src="http://placehold.it/300x400">
-      <h5>Nulla At Nulla Justo, Eget</h5>
-      <p>$400</p>
-      <a href="#" class="button small expanded hollow">Buy</a>
-    </div>
-    <div class="column">
-      <img class="thumbnail" ng-src="http://placehold.it/300x400">
-      <h5>Nulla At Nulla Justo, Eget</h5>
-      <p>$400</p>
-      <a href="#" class="button small expanded hollow">Buy</a>
-    </div>
-    <div class="column">
-      <img class="thumbnail" ng-src="http://placehold.it/300x400">
-      <h5>Nulla At Nulla Justo, Eget</h5>
-      <p>$400</p>
-      <a href="#" class="button small expanded hollow">Buy</a>
-    </div>
-    <div class="column">
-      <img class="thumbnail" ng-src="http://placehold.it/300x400">
-      <h5>Nulla At Nulla Justo, Eget</h5>
-      <p>$400</p>
-      <a href="#" class="button small expanded hollow">Buy</a>
-    </div>
-    <div class="column">
-      <img class="thumbnail" ng-src="http://placehold.it/300x400">
-      <h5>Nulla At Nulla Justo, Eget</h5>
-      <p>$400</p>
-      <a href="#" class="button small expanded hollow">Buy</a>
-    </div>
-    <div class="column">
-      <img class="thumbnail" ng-src="http://placehold.it/300x400">
-      <h5>Nulla At Nulla Justo, Eget</h5>
-      <p>$400</p>
-      <a href="#" class="button small expanded hollow">Buy</a>
-    </div>
-  </div>
-  <hr> -->
-
-  <!-- <div class="row">
-    <div class="medium-4 columns">
-      <h4>Top Products</h4>
-      <div class="media-object">
-        <div class="media-object-section">
-          <img class="thumbnail" ng-src="http://placehold.it/100x100">
-        </div>
-        <div class="media-object-section">
-          <h5>Nunc Eu Ullamcorper Orci</h5>
-          <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque.</p>
-        </div>
-      </div>
-      <div class="media-object">
-        <div class="media-object-section">
-          <img class="thumbnail" ng-src="http://placehold.it/100x100">
-        </div>
-        <div class="media-object-section">
-          <h5>Nunc Eu Ullamcorper Orci</h5>
-          <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque.</p>
-        </div>
-      </div>
-      <div class="media-object">
-        <div class="media-object-section">
-          <img class="thumbnail" ng-src="http://placehold.it/100x100">
-        </div>
-        <div class="media-object-section">
-          <h5>Nunc Eu Ullamcorper Orci</h5>
-          <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque.</p>
-        </div>
-      </div>
-    </div>
-    <div class="medium-4 columns">
-      <h4>Top Products</h4>
-      <div class="media-object">
-        <div class="media-object-section">
-          <img class="thumbnail" ng-src="http://placehold.it/100x100">
-        </div>
-        <div class="media-object-section">
-          <h5>Nunc Eu Ullamcorper Orci</h5>
-          <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque.</p>
-        </div>
-      </div>
-      <div class="media-object">
-        <div class="media-object-section">
-          <img class="thumbnail" ng-src="http://placehold.it/100x100">
-        </div>
-        <div class="media-object-section">
-          <h5>Nunc Eu Ullamcorper Orci</h5>
-          <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque.</p>
-        </div>
-      </div>
-      <div class="media-object">
-        <div class="media-object-section">
-          <img class="thumbnail" ng-src="http://placehold.it/100x100">
-        </div>
-        <div class="media-object-section">
-          <h5>Nunc Eu Ullamcorper Orci</h5>
-          <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque.</p>
-        </div>
-      </div>
-    </div>
-    <div class="medium-4 columns">
-      <h4>Top Products</h4>
-      <div class="media-object">
-        <div class="media-object-section">
-          <img class="thumbnail" ng-src="http://placehold.it/100x100">
-        </div>
-        <div class="media-object-section">
-          <h5>Nunc Eu Ullamcorper Orci</h5>
-          <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque.</p>
-        </div>
-      </div>
-      <div class="media-object">
-        <div class="media-object-section">
-          <img class="thumbnail" ng-src="http://placehold.it/100x100">
-        </div>
-        <div class="media-object-section">
-          <h5>Nunc Eu Ullamcorper Orci</h5>
-          <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque.</p>
-        </div>
-      </div>
-      <div class="media-object">
-        <div class="media-object-section">
-          <img class="thumbnail" ng-src="http://placehold.it/100x100">
-        </div>
-        <div class="media-object-section">
-          <h5>Nunc Eu Ullamcorper Orci</h5>
-          <p>Quisque eget odio ac lectus vestibulum faucibus eget in metus. In pellentesque.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
+<hr>
 
 
 <!-- LISTING PROFILE VIEW -->
