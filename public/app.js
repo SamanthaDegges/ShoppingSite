@@ -1,7 +1,13 @@
 var app = angular.module('app', ['ui.router', 'stormpath', 'stormpath.templates', 'mm.foundation']);
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/home');
+
+  $locationProvider.html5Mode({
+    enabled: true,
+    requireBase: false
+  });
+
   $stateProvider
 
   .state('home', {
@@ -29,10 +35,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
   })
 });
 
-app.run(function($stormpath){
+app.run(function($stormpath, $rootScope, $state){
   $stormpath.uiRouter({
     loginState: 'adminLogin',
     defaultPostLoginState: 'adminDash',
-    defaultPostLogoutState: 'home'
+    // defaultPostLogoutState: 'home'
+  });
+
+  $rootScope.$on('$sessionEnd', function() {
+    $state.transitionTo('home');
   });
 });
