@@ -38,5 +38,4 @@ app.controller('homeCtrl', function($scope, $stateParams, $state, listingService
   //   alert("Your transaction did not go through. Error "+ err.data);
   // });
 
-
 });

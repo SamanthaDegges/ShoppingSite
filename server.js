@@ -19,14 +19,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(stormpath.init(app, {
   // Optional configuration options.
   website: true,
-  application: {href: process.env.STORMPATH_URL},
-  spaRoot: path.join(__dirname, 'public', 'index.html') //,
-  // web: {
-  //   login: {
-  //     enabled: true,
-  //     nextUri: "/#/adminDash"
-  //   }
-  // }
+  expand: {
+    customData: true
+  },
+  application: {href: process.env.STORMPATH_APPLICATION_HREF || 'https://api.stormpath.com/v1/applications/2mqGXAAhUHBAO467TXU3KE'},
+  web: {
+    spaRoot: path.join(__dirname, 'public', 'index.html')
+    // login: {
+    //   enabled: true,
+    //   nextUri: "/#/adminDash"
+    //}
+  }
   })
 );
 
@@ -34,8 +37,6 @@ app.use('/transactions', require('./routes/transactionsRoute'));
 app.use('/listings', require('./routes/listingsRoute'));
 
 Mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shoppingSite');
-
-// Mongoose.connect('mongodb://localhost/shoppingSite');
 
 app.get('/', function(req, res) {
   var index = path.join(__dirname, 'public');

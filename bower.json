@@ -19,5 +19,8 @@
   "dependencies": {
     "stormpath-sdk-angularjs": "~0.8.2",
     "angular-foundation": "~0.8.0"
+  },
+  "resolutions": {
+    "angular": ">=1.2.10"
   }
 }
