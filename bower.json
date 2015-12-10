@@ -18,6 +18,6 @@
   ],
   "dependencies": {
     "stormpath-sdk-angularjs": "~0.8.2",
-    "foundation-sites": "~6.0.5"
+    "angular-foundation": "~0.8.0"
   }
 }

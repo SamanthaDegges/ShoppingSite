@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'stormpath', 'stormpath.templates']);
+var app = angular.module('app', ['ui.router', 'stormpath', 'stormpath.templates', 'mm.foundation']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');
