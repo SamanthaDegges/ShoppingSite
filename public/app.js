@@ -27,6 +27,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) { //,
     controller: 'adminLoginCtrl'
   })
 
+  .state('forgot', {
+        url: '/forgot',
+        templateUrl: 'partials/forgot-password/forgot-password.html'
+  })
+
   .state('adminDash', {
     sp: { authenticate: true },
     url: '/adminDash',
