@@ -1,0 +1,15 @@
+.accordionHolder {
+  margin-top: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  /*border: 1px solid #e6e6e6;*/
+}
+
+.marginRight {
+  padding-right: 1em;
+}
+
+.marginLeft {
+  padding-left: 1em;
+}
