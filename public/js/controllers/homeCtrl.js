@@ -21,13 +21,16 @@ app.controller('homeCtrl', function($scope, $stateParams, $state, listingService
   })
   console.log('home ctrl is working.');
 
-    $('.one-time').slick({
-      infinite: true,
-      speed: 300,
-      slidesToShow: 1,
-      adaptiveHeight: false,
-      arrows: false
-    });
+  $('.one-time').slick({
+    autoplay: true,
+    speed: 3000,
+    cssEase: 'ease',
+    fade: true,
+    draggable: true,
+    slidesToShow: 1,
+    adaptiveHeight: false,
+    arrows: true
+  });
 
   // $scope.purchaseData = {
   //   submitDate: Date.now,
