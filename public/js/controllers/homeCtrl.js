@@ -29,7 +29,7 @@ app.controller('homeCtrl', function($scope, $stateParams, $state, listingService
     draggable: true,
     slidesToShow: 1,
     adaptiveHeight: false,
-    arrows: true
+    arrows: false
   });
 
   // $scope.purchaseData = {
