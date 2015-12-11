@@ -4,24 +4,29 @@
     <div class ="accordionHolder large-12 columns">
       <h4>Listings</h4>
       <accordion close-others="false">
-        <accordion-group heading="For Sale" is-open="true">
+        <accordion-group heading="Active Listings" is-open="true">
           A list of all items currently listed as active or for sale.
           <!-- <button class="button small" ng-click="addItem()">Add Item</button> -->
           <div ng-repeat="item in items">{{item}}</div>
         </accordion-group>
-        <accordion-group heading="Scheduled">
+        <accordion-group heading="Scheduled Listings">
           <div ng-repeat="item in items">{{item}}</div>
           <p>A list or table of items that are scheduled will appear here, dynamically.</p>
         </accordion-group>
-        <accordion-group heading="Archived">
+        <accordion-group heading="Archived Listings">
           <div ng-repeat="item in items">{{item}}</div>
           <p>Archived items listed here.</p>
         </accordion-group>
-        <accordion-group is-open="isopen">
-          <accordion-heading>
-            I can have markup, too! <i class="right" ng-class="{'fa fa-chevron-down': isopen, 'fa fa-chevron-right': !isopen}"></i>
-          </accordion-heading>
-          This is just some content to illustrate fancy headings.
+        <accordion-group heading="Create a Listing">
+          <!-- <i class="inline-block right" ng-class="{'fa fa-chevron-down': isopen, 'fa fa-chevron-right': !isopen}"></i> -->
+          <div class="row">
+            <div class="small-3 columns">
+              <label for="middle-label" class="middle">Title</label>
+            </div>
+            <div class="small-9 columns">
+              <input type="text" id="middle-label" placeholder="Custom Avatar">
+            </div>
+          </div>
         </accordion-group>
       </accordion>
     </div>
@@ -54,8 +59,8 @@
       <accordion-group heading="Admin Management">
         <p>Create a admin account for someone else:</p>
         <div class="nestedFormContainer">
-          <h4 class="text-center">Registration:</h4>
-          <div sp-registration-form></div>
+          <h4 class="text-center">Registrwation:</h4>
+          <div sp-registration-form template-url ="/partials/forms/customRegisterForm.html"></div>
         </div>
       </accordion-group>
       <accordion-group heading="Customize Carousel">
