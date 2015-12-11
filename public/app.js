@@ -28,12 +28,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) { //,
   })
 
   .state('forgot', {
-        url: '/forgot',
-        templateUrl: 'partials/forgot-password/forgot-password.html'
+      url: '/forgot',
+      templateUrl: 'partials/forgot-password/forgot-password.html'
   })
 
   .state('adminDash', {
-    sp: { authenticate: true },
+    // sp: { authenticate: true },
     url: '/adminDash',
     templateUrl: 'partials/adminDash.html',
     controller: 'adminDashCtrl'
