@@ -13,3 +13,22 @@
 .marginLeft {
   padding-left: 1em;
 }
+
+h3, p{
+  font-family: 'Droid Sans', sans-serif;
+}
+
+form label, div button, a.button, h4, footer, div label {
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+}
+
+.formContainer {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.nestedFormContainer {
+  padding-top: 1em;
+  padding-bottom: .5em;
+}
