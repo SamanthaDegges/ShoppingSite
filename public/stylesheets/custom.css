@@ -3,7 +3,7 @@
   padding-left: 1em;
   padding-right: 1em;
   padding-bottom: 1em;
-  /*border: 1px solid #e6e6e6;*/
+  border-bottom: 1px solid #e6e6e6;
 }
 
 .marginRight {
@@ -14,7 +14,7 @@
   padding-left: 1em;
 }
 
-h3, p{
+h3, p, .accordion, .accordion-navigation a, .accordion dd a {
   font-family: 'Droid Sans', sans-serif;
 }
 
