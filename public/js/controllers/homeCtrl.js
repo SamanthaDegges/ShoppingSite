@@ -21,6 +21,14 @@ app.controller('homeCtrl', function($scope, $stateParams, $state, listingService
   })
   console.log('home ctrl is working.');
 
+    $('.one-time').slick({
+      infinite: true,
+      speed: 300,
+      slidesToShow: 1,
+      adaptiveHeight: false,
+      arrows: false
+    });
+
   // $scope.purchaseData = {
   //   submitDate: Date.now,
   //   item: 'itemId',
