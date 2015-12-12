@@ -1,6 +1,6 @@
 .carousel {
   margin-bottom: 1em;
-  }
+}
 
 .accordionHolder {
   margin-top: 1em;
@@ -35,4 +35,8 @@ form label, div button, a.button, h4, footer, div label {
 .nestedFormContainer {
   padding-top: 1em;
   padding-bottom: .5em;
+}
+
+footer ul {
+  list-style-type: none;
 }
