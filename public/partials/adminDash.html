@@ -34,12 +34,81 @@
            <i class="right" ng-class="{'fa fa-chevron-down': showCreate, 'fa fa-chevron-right': !showCreate}"></i>
          </accordion-heading>
           <div class="row">
-            <div class="small-3 columns">
-              <label for="middle-label" class="middle">Title</label>
-            </div>
-            <div class="small-9 columns">
-              <input type="text" id="middle-label" placeholder="Custom Avatar">
-            </div>
+            <form>
+  <div class="row">
+    <div class="large-8 columns">
+      <label>Title
+        <input type="text" placeholder="15 Pack of Watercolor Brushes" />
+      </label>
+    </div>
+    <div class="large-4 columns">
+      <div class="row collapse">
+        <label>Price</label>
+          <div class="large-1 columns">
+            <span class="postfix">$</span>
+          </div>
+          <div class="columns large-11">
+          <input type="text" placeholder="3.00" />
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Description
+        <input type="text" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellat modi molestiae ipsam aliquam, quasi veritatis eum cumque, ratione dolore cum facilis corporis veniam soluta fuga ea excepturi neque laborum."/>
+      </label>
+    </div>
+    <div class="large-12 columns">
+      <div class="row collapse">
+        <label>Images</label>
+        <div class="small-12 columns">
+          <input type="text" placeholder="upload"/>
+        </div>
+        <!-- <div class="small-3 columns">
+          <span class="postfix">.com</span>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Select Box
+        <select>
+          <option value="husker">Husker</option>
+          <option value="starbuck">Starbuck</option>
+          <option value="hotdog">Hot Dog</option>
+          <option value="apollo">Apollo</option>
+        </select>
+      </label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-6 columns">
+      <label>Choose Your Favorite</label>
+      <input type="radio" name="pokemon" value="Red" id="pokemonRed"><label for="pokemonRed">Red</label>
+      <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
+    </div>
+    <div class="large-6 columns">
+      <label>Check these out</label>
+      <input id="checkbox1" type="checkbox"><label for="checkbox1">Checkbox 1</label>
+      <input id="checkbox2" type="checkbox"><label for="checkbox2">Checkbox 2</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Textarea Label
+        <textarea placeholder="small-12.columns"></textarea>
+      </label>
+    </div>
+  </div>
+</form>
+            title: listing.title,
+            description: listing.description,
+            price: listing.priceNum,
+            images: listing.images,
+            status: listing.status,
+            created: Date.now
           </div>
         </accordion-group>
       </accordion>

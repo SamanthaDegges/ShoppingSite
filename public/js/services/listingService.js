@@ -13,13 +13,9 @@ app.service("listingService", function($http) {
       status: listing.status,
       created: Date.now
     }
-    $http.post('/listings', newListing).
-    then(function(res) {
-      console.log('listing creation successful', res);
-    }, function(err) {
-      alert("Your listing did not go through. Error "+ err.data);
-    })
+    return $http.post('/listings', newListing);
   }
+
 
   this.removeListing = function(listingId) {
     $http.delete('listings/:listingId', listingId).
