@@ -8,6 +8,8 @@ var fs = require('fs');
 var http = require('http');
 var app = express();
 var stormpath = require('express-stormpath');
+var multer  = require('multer')
+var upload = multer({ dest: 'uploads/' })
 
 app.set('views', path.join(__dirname, 'views'));
 
@@ -32,6 +34,17 @@ app.use(stormpath.init(app, {
   }
   })
 );
+
+
+app.post('/profile', upload.single('singleFile'), function (req, res, next) {
+  // req.file is the `avatar` file
+  // req.body will hold the text fields, if there were any
+})
+
+// app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
+//   // req.files is array of `photos` files
+//   // req.body will contain the text fields, if there were any
+// })
 
 app.use('/transactions', require('./routes/transactionsRoute'));
 app.use('/listings', require('./routes/listingsRoute'));
