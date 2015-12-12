@@ -4,21 +4,35 @@
     <div class ="accordionHolder large-12 columns">
       <h4>Listings</h4>
       <accordion close-others="false">
-        <accordion-group heading="Active Listings" is-open="true">
+        <accordion-group is-open="showActive">
+          <accordion-heading>
+            Active Listings
+            <i class="right" ng-class="{'fa fa-chevron-down': showActive, 'fa fa-chevron-right': !showActive}"></i>
+         </accordion-heading>
           A list of all items currently listed as active or for sale.
-          <!-- <button class="button small" ng-click="addItem()">Add Item</button> -->
           <div ng-repeat="item in items">{{item}}</div>
         </accordion-group>
-        <accordion-group heading="Scheduled Listings">
+        <accordion-group is-open="showScheduled">
+          <accordion-heading>
+            Scheduled Listings
+            <i class="right" ng-class="{'fa fa-chevron-down': showScheduled, 'fa fa-chevron-right': !showScheduled}"></i>
+          </accordion-heading>
           <div ng-repeat="item in items">{{item}}</div>
           <p>A list or table of items that are scheduled will appear here, dynamically.</p>
         </accordion-group>
-        <accordion-group heading="Archived Listings">
+        <accordion-group is-open="showArchived">
+          <accordion-heading>
+            Archived Listings
+            <i class="right" ng-class="{'fa fa-chevron-down': showArchived, 'fa fa-chevron-right': !showArchived}"></i>
+          </accordion-heading>
           <div ng-repeat="item in items">{{item}}</div>
           <p>Archived items listed here.</p>
         </accordion-group>
-        <accordion-group heading="Create a Listing">
-          <!-- <i class="inline-block right" ng-class="{'fa fa-chevron-down': isopen, 'fa fa-chevron-right': !isopen}"></i> -->
+        <accordion-group is-open="showCreate">
+          <accordion-heading>
+           Create a Listing
+           <i class="right" ng-class="{'fa fa-chevron-down': showCreate, 'fa fa-chevron-right': !showCreate}"></i>
+         </accordion-heading>
           <div class="row">
             <div class="small-3 columns">
               <label for="middle-label" class="middle">Title</label>
@@ -37,13 +51,14 @@
   <div class ="accordionHolder large-6 medium-12 small-12 columns marginRight">
     <h4>Sales</h4>
     <accordion close-others="false">
-      <accordion-group heading="Recent" is-open="true">
+      <accordion-group is-open="isopen">
+        <accordion-heading>Recent<i class="right" ng-class="{'fa fa-chevron-down': isopen, 'fa fa-chevron-right': !isopen}"></i></accordion-heading>
         A list of recent sales (from Stripe) and a checkbox to move them to archive.
         This action exists so admin can manually 'review' automated orders.
         <!-- <button class="button small" ng-click="addItem()">Add Item</button> -->
         <div ng-repeat="item in items">{{item}}</div>
       </accordion-group>
-      <accordion-group heading="Archived">
+      <accordion-group is-open="showArchived"><accordion-heading>Archived<i class="right" ng-class="{'fa fa-chevron-down': showArchived, 'fa fa-chevron-right': !showArchived}"></i></accordion-heading>
         <div ng-repeat="item in items">{{item}}</div>
         <p>Archived sales listed here.</p>
       </accordion-group>
@@ -52,21 +67,18 @@
 
   <div class ="accordionHolder large-6 medium-12 small-12 columns marginLeft">
     <h4>Settings</h4>
-    <accordion close-others="true">
-      <!-- <accordion-group heading="Edit Theme">
-        <p>Customize colors here. Controller sets color to sass variables, etc.</p>
-      </accordion-group> -->
-      <accordion-group heading="Admin Management">
+    <accordion close-others="false">
+      <accordion-group is-open="showManage"><accordion-heading>Admin Management<i class="right" ng-class="{'fa fa-chevron-down': showManage, 'fa fa-chevron-right': !showManage}"></i></accordion-heading>
         <p>Create a admin account for someone else:</p>
         <div class="nestedFormContainer">
           <h4 class="text-center">Registration:</h4>
           <div sp-registration-form template-url ="/partials/forms/customRegisterForm.html"></div>
         </div>
       </accordion-group>
-      <accordion-group heading="Customize Carousel">
+      <accordion-group is-open="showCustomize"><accordion-heading>Customize Carousel<i class="right" ng-class="{'fa fa-chevron-down': showCustomize, 'fa fa-chevron-right': !showCustomize}"></i></accordion-heading>
         <p>A place to upload images to banner and edit text that is animated in.</p>
       </accordion-group>
-      <accordion-group heading="Email & Communications">
+      <accordion-group is-open="showComm"><accordion-heading>Email & Communications<i class="right" ng-class="{'fa fa-chevron-down': showComm, 'fa fa-chevron-right': !showComm}"></i></accordion-heading>
         <p>Enable email settings or templates here.</p>
       </accordion-group>
     </accordion>
