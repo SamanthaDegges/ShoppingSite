@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ui.router', 'stormpath', 'stormpath.templates', 'mm.foundation']);
 
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider) { //, $locationProvider
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/home');
 
   $locationProvider.html5Mode({
@@ -31,6 +31,19 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) { //,
       url: '/forgot',
       templateUrl: 'partials/forgot-password/forgot-password.html'
   })
+
+  .state('about', {
+    url: '/about',
+    templateUrl: 'partials/about.html',
+    controller: 'aboutCtrl'
+  })
+
+  // <li><a ui-sref="about.info">Secure Payments</a></li>
+  // <li><a ui-sref="about.contact">Contact</a></li>
+  // <li><a ui-sref="about.policies">Policies</a></li>
+  // <li><a ui-sref="about.FAQ">FAQ</a></li>
+  // <li><a ui-sref="about">
+
 
   .state('adminDash', {
     // sp: { authenticate: true },
