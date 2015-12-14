@@ -1,6 +1,6 @@
 var app = angular.module('app');
 
-app.controller('listingsCtrl', function($scope, $http, listingService) {
+app.controller('listingsCtrl', function($scope, listingService) {
   console.log('ctrl is working.');
 
   $scope.listings;
@@ -20,13 +20,6 @@ app.controller('listingsCtrl', function($scope, $http, listingService) {
   }, function(err) {
     alert("error getting listing. Error: " + err.data);
     console.log(err.data);
-  })
-
-  listingService.createListing(newListing).
-    then(function(res) {
-      console.log('listing creation successful', res);
-    }, function(err) {
-      alert("Your listing did not go through. Error "+ err.data);
-    })
+  });
 
 });
