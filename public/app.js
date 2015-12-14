@@ -38,15 +38,9 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     controller: 'aboutCtrl'
   })
 
-  // <li><a ui-sref="about.info">Secure Payments</a></li>
-  // <li><a ui-sref="about.contact">Contact</a></li>
-  // <li><a ui-sref="about.policies">Policies</a></li>
-  // <li><a ui-sref="about.FAQ">FAQ</a></li>
-  // <li><a ui-sref="about">
-
 
   .state('adminDash', {
-    // sp: { authenticate: true },
+    sp: { authenticate: true },
     url: '/adminDash',
     templateUrl: 'partials/adminDash.html',
     controller: 'adminDashCtrl'
