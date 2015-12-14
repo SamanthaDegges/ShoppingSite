@@ -14,6 +14,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res, next) {
+  console.log('body is: ', req.body);
   var newListing = new listing(req.body);
   newListing.save(function(err, saved) {
     res.send(err || saved);
