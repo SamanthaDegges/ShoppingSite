@@ -4,11 +4,11 @@ app.service("listingService", function($http) {
 
   this.createListing = function(listing) {
     var newListing = {
-      // duration.startDate: listing.startDate,
-      // duration.endDate: listing.endDate,
+      duration: {startDate: listing.startDate, endDate: listing.endDate},
       title: listing.title,
       description: listing.description,
       price: listing.priceNum,
+      featuredImage: listing.featured,
       images: listing.images,
       status: listing.status,
       created: Date.now
