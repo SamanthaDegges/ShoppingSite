@@ -22,7 +22,7 @@ h3, p, .accordion, .accordion-navigation a, .accordion dd a {
   font-family: 'Droid Sans', sans-serif;
 }
 
-form label, div button, a.button, h4, footer, div label {
+form label, div button, a.button, h4, footer, div #dbebf2#27b5e4#dbebf2label {
   font-family: 'Montserrat', sans-serif;
   text-transform: uppercase;
 }
@@ -39,4 +39,9 @@ form label, div button, a.button, h4, footer, div label {
 
 footer ul {
   list-style-type: none;
+}
+
+.panel {
+  background-color: #e4ecee;
+  border: none;
 }
