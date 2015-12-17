@@ -1,5 +1,6 @@
 <div class="row">
   <h4 class="text-center">Admin Dash</h4>
+
   <!-- LISTINGS ACCORDION -->
   <div class ="accordionHolder large-12 columns">
     <h4>Listings</h4>
@@ -33,8 +34,7 @@
           Create a Listing
           <i class="right" ng-class="{'fa fa-chevron-down': showCreate, 'fa fa-chevron-right': !showCreate}"></i>
         </accordion-heading>
-        <div class="row">
-          <form>
+        <div class="row panel">
             <div class="row">
               <div class="large-8 medium-12 small-12 columns">
                 <label>Title
@@ -64,45 +64,46 @@
               <div class="large-12 columns">
                 <div class="row collapse">
                   <label>Images</label>
-                  <div class="small-12 columns">
-                    <input ng-model="newListing.images" type="text" placeholder="upload"/>
-                  </div>
+                  <form action="/uploads" method='post' enctype='multipart/form-data'>
+                    <input type="file" name="file">
+                    <button type="submit">Submit</button>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns">
-              <label>Select featured image.
-                <select ng-model="newListing.featuredImage">
-                  <option value="">Please select after uploading</option> <!-- unselected -->
-                  <option value="image1">{{images[1] || 'Please upload an image.'}}</option>
-                  <option value="image2">{{images[2] || 'Please upload an image.'}}</option>
-                  <option value="image3">{{images[3] || 'Please upload an image.'}}</option>
-                  <option value="image4">{{images[4] || 'Please upload an image.'}}</option>
-                  <option value="image5">{{images[5] || 'Please upload an image.'}}</option>
-                </select>
-              </label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="large-12 columns text-justify">
-              <label>Date Listing should become active.</label>
-              <div class="large-4 large-offset-1 medium-6 small-12 columns">
-                <input ng-model="newListing.status" type="radio" name="status" value="current"><label for="statusCurrent">Immediately</label><br>
-                <input ng-model="newListing.status" type="radio" name="status" value="archived"><label for="statusArchived">Archive for later</label>
+
+            <div class="row">
+              <div class="large-12 columns">
+                <label>Select featured image.
+                  <select ng-model="newListing.featuredImage">
+                    <option value="">Please select after uploading</option> <!-- unselected -->
+                    <option value="image1">{{images[1] || 'Please upload an image.'}}</option>
+                    <option value="image2">{{images[2] || 'Please upload an image.'}}</option>
+                    <option value="image3">{{images[3] || 'Please upload an image.'}}</option>
+                    <option value="image4">{{images[4] || 'Please upload an image.'}}</option>
+                    <option value="image5">{{images[5] || 'Please upload an image.'}}</option>
+                  </select>
+                </label>
               </div>
+            </div>
+            <div class="row">
+              <div class="large-12 columns text-justify">
+                <label>Date Listing should become active.</label>
+                <div class="large-4 large-offset-1 medium-6 small-12 columns">
+                  <input ng-model="newListing.status" type="radio" name="status" value="current"><label for="statusCurrent">Immediately</label><br>
+                  <input ng-model="newListing.status" type="radio" name="status" value="archived"><label for="statusArchived">Archive for later</label>
+                </div>
                 <div class="large-5 large-offset-1 medium-6 small-12 columns end">
-                <input ng-model="newListing.status" type="radio" name="status" value="scheduled"><label for="statusScheduled">Schedule for:</label>
+                  <input ng-model="newListing.status" type="radio" name="status" value="scheduled"><label for="statusScheduled">Schedule for:</label>
                   <input type="date" id="exampleInput" name="input" ng-model="example.value" placeholder="2015-12-31" min="2015-12-11" max="2017-12-31"/>
                   <!-- <div role="alert">
-                    <span class="error" ng-show="myForm.input.$error.required">Required!</span>
-                    <span class="error" ng-show="myForm.input.$error.date">Not a valid date!</span>
-                  </div> -->
-                </div>
+                  <span class="error" ng-show="myForm.input.$error.required">Required!</span>
+                  <span class="error" ng-show="myForm.input.$error.date">Not a valid date!</span>
+                </div> -->
+              </div>
             </div>
           </div>
           <button ng-click="submitListing(newListing)" class="right">Create Listing</button>
-        </form>
       </div>
     </accordion-group>
   </accordion>
@@ -118,7 +119,7 @@
         <accordion-heading>Recent<i class="right" ng-class="{'fa fa-chevron-down': isopen, 'fa fa-chevron-right': !isopen}"></i></accordion-heading>
         A list of recent sales (from Stripe) and a checkbox to move them to archive.
         This action exists so admin can manually 'review' automated orders.
-        <!-- <button class="button small" ng-click="addItem()">Add Item</button> -->
+        <button class="button small" ng-click="addItem()">Add Item</button>
         <div ng-repeat="item in items">{{item}}</div>
       </accordion-group>
       <accordion-group is-open="showArchived"><accordion-heading>Archived<i class="right" ng-class="{'fa fa-chevron-down': showArchived, 'fa fa-chevron-right': !showArchived}"></i></accordion-heading>
