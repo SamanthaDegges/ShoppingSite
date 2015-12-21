@@ -1,15 +1,11 @@
 "use strict"
 
-var Mongoose = require('mongoose');
-var Schema = Mongoose.Schema;
 var router = require('express').Router();
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var upload = multer({ dest: 'uploads' });
-var image = require('../models/image');
 
 router.post('/', upload.single('file'), function(req, res, next) {
-  console.log('req is: ', req);
   console.log('body is: ', req.body);
   console.log('file is: ', req.file);
   res.send(req.file);
@@ -17,9 +13,8 @@ router.post('/', upload.single('file'), function(req, res, next) {
 
 router.get('/', function(req, res) {
   console.log('get triggered for uploads.');
-  image.find({}, function(err, found) {
+  //FIND AT S3
     res.send(err | found);
-  });
 });
 
 module.exports = router;

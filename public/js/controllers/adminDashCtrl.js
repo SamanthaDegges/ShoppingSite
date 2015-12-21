@@ -35,16 +35,4 @@ app.controller('adminDashCtrl', function($scope, listingService, uploadService) 
     });
   }
 
-  // $scope.uploadFile = function(input) {
-  //   $scope.image = input;
-  //   console.log('Triggered. Input is: ', $scope.image);
-  //   uploadService.upload($scope.image).
-  //   success(function(res){
-  //     console.log('input is: ', $scope.image);
-  //     console.log(res);
-  //   }).error(function(res){
-  //     console.log(res);
-  //   });
-  // }
-
 });
