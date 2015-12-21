@@ -67,6 +67,8 @@
                   <form action="/uploads" method='post' enctype='multipart/form-data'>
                     <input type="file" name="file">
                     <button class="right" type="submit">Upload</button>
+                    <!-- <button class='left' ng-click='showImages()'>Get Images</button> -->
+                    <div ng-repeat="upload in uploads">Images: {{upload.file.originalname}}</div>
                   </form>
                 </div>
               </div>

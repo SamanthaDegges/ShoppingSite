@@ -8,8 +8,6 @@ var fs = require('fs');
 var http = require('http');
 var app = express();
 var stormpath = require('express-stormpath');
-var multer  = require('multer')
-var upload = multer({ dest: 'uploads/' })
 
 app.set('views', path.join(__dirname, 'views'));
 
@@ -27,27 +25,13 @@ app.use(stormpath.init(app, {
   application: {href: process.env.STORMPATH_APPLICATION_HREF || 'https://api.stormpath.com/v1/applications/2mqGXAAhUHBAO467TXU3KE'},
   web: {
     spaRoot: path.join(__dirname, 'public', 'index.html')
-    // login: {
-    //   enabled: true,
-    //   nextUri: "/#/adminDash"
-    //}
   }
   })
 );
 
-
-app.post('/profile', upload.single('singleFile'), function (req, res, next) {
-  // req.file is the `avatar` file
-  // req.body will hold the text fields, if there were any
-})
-
-// app.post('/photos/upload', upload.array('photos', 12), function (req, res, next) {
-//   // req.files is array of `photos` files
-//   // req.body will contain the text fields, if there were any
-// })
-
-app.use('/transactions', require('./routes/transactionsRoute'));
-app.use('/listings', require('./routes/listingsRoute'));
+app.use('/transactions', require('./routes/transactions'));
+app.use('/listings', require('./routes/listings'));
+app.use('/uploads', require('./routes/uploads'));
 
 Mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shoppingSite');
 
@@ -73,7 +57,7 @@ app.use(function(req, res, next) {
 // will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
-    res.status(err.status || 500).send('error', {
+    res.status(status || 500).send('error', {
       message: err.message,
       error: err
     });
@@ -83,7 +67,7 @@ if (app.get('env') === 'development') {
 // production error handler
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
-  res.status(status || 500).send('production error handler fired.');
+  res.status(err.status || 500).send('production error handler fired.');
 });
 
 module.exports = app;

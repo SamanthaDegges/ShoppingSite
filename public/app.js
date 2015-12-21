@@ -40,7 +40,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 
   .state('adminDash', {
-    sp: { authenticate: true },
+    // sp: { authenticate: true },
     url: '/adminDash',
     templateUrl: 'partials/adminDash.html',
     controller: 'adminDashCtrl'

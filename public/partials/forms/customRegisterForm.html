@@ -12,7 +12,7 @@
           <label for="spFirstName" class="columns small-8">First Name</label>
         </div>
         <div class="columns small-8">
-          <input type="text" id="spFirstName" ng-model="formModel.givenName" placeholder="First Name" ng-disabled="creating">
+          <input type="text" id="spFirstName" ng-model="formModel.givenName" placeholder="First Name" ng-disabled="creating" required>
         </div>
       </div>
       <div class="row">
@@ -20,7 +20,7 @@
           <label for="spLastName">Last Name</label>
         </div>
         <div class="columns small-8">
-          <input type="text" id="spLastName" ng-model="formModel.surname" placeholder="Last Name" ng-disabled="creating">
+          <input type="text" id="spLastName" ng-model="formModel.surname" placeholder="Last Name" ng-disabled="creating" required>
         </div>
       </div>
       <div class="row">
@@ -28,7 +28,7 @@
           <label for="spEmail">Email</label>
         </div>
         <div class="columns small-8">
-          <input type="email" id="spEmail" ng-model="formModel.email" placeholder="Email" ng-disabled="creating">
+          <input type="email" id="spEmail" ng-model="formModel.email" placeholder="Email" ng-disabled="creating" required>
         </div>
       </div>
       <div class="row">
@@ -36,7 +36,7 @@
           <label for="spPassword">Password</label>
         </div>
         <div class="columns small-8">
-          <input type="password" id="spPassword" ng-model="formModel.password" placeholder="Password" ng-disabled="creating">
+          <input type="password" id="spPassword" ng-model="formModel.password" placeholder="Password" ng-disabled="creating" required>
         </div>
       </div>
       <div class="row">

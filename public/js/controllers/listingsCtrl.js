@@ -18,7 +18,7 @@ app.controller('listingsCtrl', function($scope, listingService) {
     $scope.listings = res.data;
     $scope.images = ['http://placehold.it/300x100&text=[300x100]','http://placehold.it/400x300&text=[400x300]']
   }, function(err) {
-    alert("error getting listing. Error: " + err.data);
+    alert("Error getting listing. Error: " + err.data);
     console.log(err.data);
   });
 

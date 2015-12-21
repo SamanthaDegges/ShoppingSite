@@ -25,6 +25,7 @@
   <script src="/js/controllers/homeCtrl.js"></script>
   <script src="/js/services/listingService.js"></script>
   <script src="/js/services/cartService.js"></script>
+  <script src="/js/services/uploadService.js"></script>
   <script src="/js/controllers/adminDashCtrl.js"></script>
   <script src="/js/controllers/adminLoginCtrl.js"></script>
   <!-- SLICK CAROUSEL -->
@@ -41,9 +42,9 @@
     </div>
     <div class="large-9 small-8 columns">
       <ul class="right button-group">
-        <li><a ui-sref="home.listings" sp-logout if-user>Log Out</a></li>
-        <li><a ui-sref="adminDash" if-user>Dashboard</a></li>
-        <li><a ui-sref="home.listings" if-user>Home</a></li>
+        <li><a ui-sref="home.listings" sp-logout if-user> Log Out </a></li>
+        <li><a ui-sref="adminDash" if-user> Dashboard </a></li>
+        <li><a ui-sref="home.listings" if-user> Home </a></li>
       </ul>
     </div>
   </div>
