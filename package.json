@@ -29,6 +29,7 @@
     "mongoose": "^4.2.8",
     "morgan": "^1.6.1",
     "multer": "^1.1.0",
+    "multer-s3": "^1.4.1",
     "serve-favicon": "^2.3.0",
     "stormpath-sdk-angularjs": "^0.8.2"
   }
