@@ -33,6 +33,7 @@ app.use('/transactions', require('./routes/transactions'));
 app.use('/listings', require('./routes/listings'));
 app.use('/uploads', require('./routes/uploads'));
 
+
 Mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shoppingSite');
 
 app.get('/', function(req, res) {
