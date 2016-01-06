@@ -16,24 +16,21 @@ var upload = multer({
   })
 });
 var router = require('express').Router();
+var uploadFile = upload.array('photos', 6);
 
-router.post('/', upload.single("file"), function(req, res, next) {
-  console.log('body is: ', req.body);
-  console.log('file is: ', req.file);
-  res.send(req.file);
+router.post('/', function(req, res) {
+  uploadFile(req, res, function (err) {
+    if (err) {
+      console.log("Error: ", err);
+      return;
+    }
+    console.log('Body is: ', req.body);
+    console.log('File is: ', req.files);
+    res.send(req.files);
+  })
 });
 
-// var upload = multer().single('avatar')
-//
-// router.post('/', function (req, res) {
-//   upload(req, res, function (err) {
-//     if (err) {
-//       console.log('error uploading.', err);
-//       return;
-//     }
-//     // Everything went fine
-//   })
-// });
+
 
 router.get('/', function(req, res) {
   console.log('get triggered for uploads.');
