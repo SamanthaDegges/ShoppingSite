@@ -12,16 +12,29 @@ app.controller('adminDashCtrl', function($scope, listingService, uploadService) 
   };
 
   $scope.newListing;
+  $scope.listingId;
 
   $scope.submitListing = function(newListing) {
     console.log('submit triggered');
     listingService.createListing(newListing).
     then(function(res) {
       console.log('listing creation successful', res);
+      $scope.listingId = res.data._id;
+      console.log('Id is: ', $scope.listingId);
     }, function(err) {
       console.log('error occurred.', err);
       alert("Your listing did not go through. Error "+ err.data);
     });
+  };
+
+  $scope.assignImages = function(listing) {
+    console.log('assignImages triggered.');
+    listingService.assignImages(listingId).
+    then(function(res) {
+      console.log('Images successfully assigned to this product listing.');
+    }, function(err) {
+      console.log('Error. Images unsuccessfully assigned to product listing.', err.data);
+    })
   };
 
   // $scope.showImages = function() {

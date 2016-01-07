@@ -9,13 +9,12 @@ app.service("listingService", function($http) {
       description: listing.description,
       price: listing.priceNum,
       featuredImage: listing.featured,
-      images: listing.images,
+      // images: listing.images,
       status: listing.status,
       created: Date.now
     }
     return $http.post('/listings', newListing);
   }
-
 
   this.removeListing = function(listingId) {
     $http.delete('listings/:listingId', listingId).

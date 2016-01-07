@@ -29,14 +29,16 @@ router.post('/', function(req, res) {
     }
     var productImage = req.files[0];
     var newImage = new image(productImage);
-    console.log(newImage);
     newImage.save(function(err, saved) {
       res.send(err || saved);
     })
   })
 });
 
-
+//ASSIGN IMAGES MAKES A PUT REQUEST FROM ADMINDASH CTRL
+// router.put('/', function(req, res) {
+//   image.findByIdAndUpdate(req.body,
+// });
 
 router.get('/', function(req, res) {
   console.log('get triggered for uploads.');
