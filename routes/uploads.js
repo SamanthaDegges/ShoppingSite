@@ -1,5 +1,8 @@
 "use strict"
-
+var Mongoose = require('mongoose');
+var Schema = Mongoose.Schema;
+var listing = require('../models/listing');
+var image = require('../models/image');
 var bodyParser = require('body-parser');
 var multer = require('multer');
 var s3 = require('multer-s3');
@@ -16,17 +19,20 @@ var upload = multer({
   })
 });
 var router = require('express').Router();
-var uploadFile = upload.array('photos', 6);
 
 router.post('/', function(req, res) {
+  var uploadFile = upload.array('photos', 6);
   uploadFile(req, res, function (err) {
     if (err) {
       console.log("Error: ", err);
       return;
     }
-    console.log('Body is: ', req.body);
-    console.log('File is: ', req.files);
-    res.send(req.files);
+    var productImage = req.files[0];
+    var newImage = new image(productImage);
+    console.log(newImage);
+    newImage.save(function(err, saved) {
+      res.send(err || saved);
+    })
   })
 });
 

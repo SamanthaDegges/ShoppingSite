@@ -2,7 +2,6 @@ var app = angular.module('app');
 
 app.controller('adminDashCtrl', function($scope, listingService, uploadService) {
   console.log("adminDashCtrl is working.");
-  $scope.uploads;
 
   // ACCORDION FUNCTIONALITY
   $scope.items = ['Item 1', 'Item 2', 'Item 3'];
@@ -23,16 +22,27 @@ app.controller('adminDashCtrl', function($scope, listingService, uploadService) 
       console.log('error occurred.', err);
       alert("Your listing did not go through. Error "+ err.data);
     });
-  }
+  };
 
-  $scope.showImages = function() {
-    uploadService.getImages().
-    then(function(res) {
-      console.log('res is: ', res.data);
-      $scope.uploads = res.data;
-    }, function(err) {
-      alert("There's been an error loading images from database. Error: ", err.data);
-    });
-  }
+  // $scope.showImages = function() {
+  //   uploadService.getImages().
+  //   then(function(res) {
+  //     console.log('res is: ', res.data);
+  //     $scope.uploads = res.data;
+  //   }, function(err) {
+  //     alert("There's been an error loading images from database. Error: ", err.data);
+  //   });
+  // }
+  // $scope.file;
+  // $scope.submitImages = function(file) {
+  //   console.log('submitImages triggered. Passing in: ', file);
+  //   uploadService.submitImages(file).
+  //   then(function(res) {
+  //     console.log('submitForm res is: ', res);
+  //     // $scope.images = res.data;
+  //   }, function(err) {
+  //     console.log('Error submitting form: ', err.data);
+  //   });
+  // }
 
 });

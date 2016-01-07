@@ -7,7 +7,7 @@ var listingSchema =  Schema({
   title: {type: String, required: true},
   description: {type: String, required: true},
   price: {type: Number, required: true},
-  images: [{type: String}],
+  images: [{type: String, ref: 'image'}],
   quantity: Number,
   status: {type: String, default: 'archived', enum: ['archived', 'current', 'scheduled'], required: true},
   created: {type: Date, default: Date.now},
