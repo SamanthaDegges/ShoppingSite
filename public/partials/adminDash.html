@@ -38,7 +38,7 @@
             <div class="row">
               <div class="large-8 medium-12 small-12 columns">
                 <label>Title
-                  <input ng-model="newListing.title" type="text" placeholder="15 Pack of Watercolor Brushes" />
+                  <input ng-model="newListing.title" type="text" placeholder="15 Pack of Watercolor Brushes" required/>
                 </label>
               </div>
               <div class="large-4 medium-12 small-12 columns">
@@ -48,7 +48,7 @@
                     <span class="postfix">$</span>
                   </div>
                   <div class="large-11 medium-3 small-6 end columns">
-                    <input ng-model="newListing.priceNum" type="number" name="currency" min="0" max="9999" step="0.01" placeholder="0.00" />
+                    <input ng-model="newListing.priceNum" type="number" name="currency" min="0" max="9999" step="0.01" placeholder="0.00" required/>
                   </div>
                 </div>
               </div>
@@ -56,16 +56,17 @@
             <div class="row">
               <div class="large-12 columns">
                 <label>Description
-                  <textarea ng-model="newListing.description" rows="5" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellat modi molestiae ipsam aliquam, quasi veritatis eum cumque, ratione dolore cum facilis corporis veniam soluta fuga ea excepturi neque laborum."></textarea>
+                  <textarea ng-model="newListing.description" rows="5" placeholder="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque repellat modi molestiae ipsam aliquam, quasi veritatis eum cumque, ratione dolore cum facilis corporis veniam soluta fuga ea excepturi neque laborum." required></textarea>
                 </label>
               </div>
             </div>
             <div class="row">
               <div class="large-12 columns">
                 <div class="row collapse">
-                  <label>Images</label>
+                  <!------------------- IMAGE UPLOAD FORM ---------------------->
+                  <label>Upload Your Images Here</label>
                   <form action="/uploads" method='post' enctype='multipart/form-data'>
-                    <input accept="image/*" type="file" name="photos">
+                    <input accept="image/*" type="file" name="photos" required>
                     <button class="right" type="submit">Upload</button>
                     <div ng-repeat="upload in uploads">Images: {{upload.file.originalname}}</div>
                   </form>
@@ -78,11 +79,7 @@
                 <label>Select featured image.
                   <select ng-model="newListing.featuredImage">
                     <option value="">Please select after uploading</option> <!-- unselected -->
-                    <option value="image1">{{images[1] || 'Please upload an image.'}}</option>
-                    <option value="image2">{{images[2] || 'Please upload an image.'}}</option>
-                    <option value="image3">{{images[3] || 'Please upload an image.'}}</option>
-                    <option value="image4">{{images[4] || 'Please upload an image.'}}</option>
-                    <option value="image5">{{images[5] || 'Please upload an image.'}}</option>
+                    <!-- <option value="image1">{{images[1] || 'Please upload an image.'}}</option> -->
                   </select>
                 </label>
               </div>
@@ -90,21 +87,32 @@
             <div class="row">
               <div class="large-12 columns text-justify">
                 <label>Date Listing should become active.</label>
-                <div class="large-4 large-offset-1 medium-6 small-12 columns">
-                  <input ng-model="newListing.status" type="radio" name="status" value="current"><label for="statusCurrent">Immediately</label><br>
-                  <input ng-model="newListing.status" type="radio" name="status" value="archived"><label for="statusArchived">Archive for later</label>
+                <div class="large-3 large-offset-1 medium-5 small-12 columns">
+                  <input ng-model="newListing.status" type="radio" name="status" value="current">
+                  <label for="statusCurrent">Immediately</label>
+                  <br>
+                  <input ng-model="newListing.status" type="radio" name="status" value="archived">
+                  <label for="statusArchived">Archive for later</label>
+                  <br>
+                  <input ng-model="newListing.status" type="radio" name="status" value="scheduled">
+                  <label class="text-center" for="statusScheduled">Schedule</label>
                 </div>
-                <div class="large-5 large-offset-1 medium-6 small-12 columns end">
-                  <input ng-model="newListing.status" type="radio" name="status" value="scheduled"><label for="statusScheduled">Schedule for:</label>
-                  <input type="date" id="exampleInput" name="input" ng-model="example.value" placeholder="2015-12-31" min="2015-12-11" max="2017-12-31"/>
-                  <!-- <div role="alert">
-                  <span class="error" ng-show="myForm.input.$error.required">Required!</span>
-                  <span class="error" ng-show="myForm.input.$error.date">Not a valid date!</span>
-                </div> -->
+                <div class="large-6 large-offset-1 medium-7 small-12 columns end">
+                  <div class="class large-6 medium-6 small-12 columns">
+                    <label>Start Date:</label>
+                    <input type="date" id="startDate" name="startDate" ng-model="newListing.startDate" placeholder="minDate" min="minDate" max="2017-12-31"/>
+                  </div>
+                  <!-- <div role="alert"> -->
+                  <!-- <span class="error" ng-show="myForm.input.$error.date">Not a valid date!</span> -->
+                  <div class="columns large-6 medium-6 small-12">
+                    <label>Expiration Date:</label>
+                    <input type="date" id="endDate" name="endDate" ng-model="newListing.endDate" placeholder="minDate" min="minDate" max="2017-12-31">
+                  </div>
+                </div>
               </div>
             </div>
+            <button ng-click="submitListing(newListing)" class="right">Create Listing</button>
           </div>
-          <button ng-click="submitListing(newListing)" class="right">Create Listing</button>
       </div>
     </accordion-group>
   </accordion>
