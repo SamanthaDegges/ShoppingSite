@@ -9,7 +9,6 @@ app.service("listingService", function($http) {
       description: listing.description,
       price: listing.priceNum,
       featuredImage: listing.featured,
-      // images: listing.images,
       status: listing.status,
       created: Date.now
     }
@@ -22,7 +21,6 @@ app.service("listingService", function($http) {
       alert("The listing has been removed.")
     }, function(err) {
       alert("Removal unsuccessful. Error: " + err.data);
-      console.log(err.data);
     })
   }
 
