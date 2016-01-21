@@ -9,8 +9,5 @@ app.service("uploadService", function($http) {
   this.assignImages = function(listing) {
     return $http.put('uploads', listing);
   }
-  // this.submitImages = function(file) {
-  //   return $http.post('/uploads', file);
-  // }
 
 });
