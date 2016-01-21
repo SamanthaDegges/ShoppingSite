@@ -31,5 +31,7 @@ app.controller('adminDashCtrl', function($scope, listingService, uploadService) 
     }, function(err) {
       console.log('Error occurred in POST request: ', err);
       alert("Your listing did not go through. Error "+ err.data);
-    });
+    })
   };
+
+});
