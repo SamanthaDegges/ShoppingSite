@@ -20,7 +20,7 @@ var upload = multer({
 });
 var router = require('express').Router();
 
-router.post('/', function(req, res) {
+router.post('/', function(req, res, next) {
   var uploadFile = upload.array('photos', 6);
   uploadFile(req, res, function (err) {
     if (err) {
@@ -28,17 +28,20 @@ router.post('/', function(req, res) {
       return;
     }
     var productImage = req.files[0];
+    console.log('productImage is: ', productImage);
     var newImage = new image(productImage);
     newImage.save(function(err, saved) {
-      res.send(err || saved);
-    })
-  })
+      if (err) {
+        console.log('Saving to DB unsuccessful.');
+        return;
+      }
+      else {
+        console.log('going to send this: ', saved);
+        res.send(saved);
+      }
+    });
+  });
 });
-
-//ASSIGN IMAGES MAKES A PUT REQUEST FROM ADMINDASH CTRL
-// router.put('/', function(req, res) {
-//   image.findByIdAndUpdate(req.body,
-// });
 
 router.get('/', function(req, res) {
   console.log('get triggered for uploads.');
