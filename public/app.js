@@ -3,11 +3,6 @@ var app = angular.module('app', ['ui.router', 'stormpath', 'stormpath.templates'
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/home');
 
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-  });
-
   $stateProvider
 
   .state('home', {
@@ -38,9 +33,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     controller: 'aboutCtrl'
   })
 
-
   .state('adminDash', {
-    // sp: { authenticate: true },
+    sp: { authenticate: true },
     url: '/adminDash',
     templateUrl: 'partials/adminDash.html',
     controller: 'adminDashCtrl'
